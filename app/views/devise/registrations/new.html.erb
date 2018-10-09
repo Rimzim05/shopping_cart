@@ -6,7 +6,7 @@
   <div class="field">
     <p>
     <b>Signup As</b><br />
-    <%= f.radio_button :user_type, 'saler' %> Saler<br />
+    <%= f.radio_button :user_type, 'saler' %> Seller<br />
     <%= f.radio_button :user_type, 'buyer' %> Buyer<br />
 </p>
   </div>
@@ -23,7 +23,7 @@
 
    <div class="field">
     <%= f.label :phonenum %><br />
-    <%= f.text_field :phonenum, autofocus: true, autocomplete: "Mobile Number" %>
+    <%= f.telephone_field :phonenum, autofocus: true, autocomplete: "Mobile Number" %>
   </div>
 
   <div class="field">
@@ -72,7 +72,7 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-  <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+ 
 <% end %>
 
 <%= render "devise/shared/links" %>

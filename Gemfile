@@ -9,7 +9,9 @@ gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'devise'
-# gem devise
+# gem devise for login and signup pages
+gem 'bootstrap', '~> 4.1.3'
+# bootstrap for designing
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
