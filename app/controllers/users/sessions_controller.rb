@@ -2,15 +2,20 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-def create
-  super do |resource|
-    BackgroundWorker.trigger(resource)
-  end
-end
+ # def create
+ #    user = User.where(email: params[:user][:email],  password: params[:user][:password]).first
+ #    if user.present?
+ #      session[:user_id] = user.id
+ #      redirect_to user_path(session[:user_id]), notice:  "Logged in!" 
+ #    else
+ #      render :new, notice: "User not found"   
+ #    end
+ #  end 
   # GET /resource/sign_in
   # def new
   #   super
   # end
+
 
   # POST /resource/sign_in
   # def create
@@ -18,9 +23,7 @@ end
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  #   
 
   # protected
 

@@ -2,6 +2,17 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
+ #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# twitter gem
+gem "twitter-bootstrap-rails"
+gem "therubyracer"
+gem "less-rails"
+# gem for role
+gem 'cancan'
+# j query gem
+gem 'jquery-ui-rails' 
+gem 'jquery-rails' 
+#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -10,7 +21,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'devise'
 # gem devise for login and signup pages
-gem 'bootstrap', '~> 4.1.3'
+gem 'sprockets-rails'
 # bootstrap for designing
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
