@@ -1,4 +1,9 @@
 
 <h1> welcome User </h1>
- <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-
+ <% if current_user.is_admin? %>
+ <%= button_to "category",categories_path, method: :get %>
+ <p></p>
+ <%end%>
+ <%= button_to "Add Products", products_path, :method => :get %>
+<p></p>
+ <%= button_to 'logout', destroy_user_session_path, method: :delete %>

@@ -1,0 +1,11 @@
+<%= form_for :category, url: categories_path do |f| %>
+<br>
+<%= f.label :Category_Name %><br />
+<%= f.text_field(:category_name) %>
+<br>
+ <div class="actions">
+<%= f.submit "Add" %>
+</div>
+<% end %>
+
+ <%= button_to 'Back', categories_path, :method => :get %>

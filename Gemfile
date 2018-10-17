@@ -4,16 +4,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.4'
  #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 # twitter gem
+# gem for admin
+gem "rails_admin"
+# gem 'mini_racer', platforms: :ruby
 gem "twitter-bootstrap-rails"
 gem "therubyracer"
 gem "less-rails"
 # gem for role
+gem 'bootstrap', '~> 4.1.3'
 gem 'cancan'
 # j query gem
 gem 'jquery-ui-rails' 
-gem 'jquery-rails' 
+gem 'jquery-rails'
+gem 'execjs'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-
+gem 'autoprefixer-rails', '8.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
@@ -22,6 +27,7 @@ gem 'sqlite3'
 gem 'devise'
 # gem devise for login and signup pages
 gem 'sprockets-rails'
+gem 'libv8'
 # bootstrap for designing
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -47,7 +53,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
