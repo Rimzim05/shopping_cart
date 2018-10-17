@@ -22,13 +22,13 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-        @product = Product.find(params[:id])
+        @product = current_user.products.find(params[:id])
   end
 
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
       if @product.save
          session[:product_id] = @product.id
          redirect_to  new_product_path, notice: 'Product successfully added.'
