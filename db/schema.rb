@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_132253) do
+ActiveRecord::Schema.define(version: 2018_10_22_142818) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -18,11 +18,34 @@ ActiveRecord::Schema.define(version: 2018_10_17_132253) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
+  create_table "pimages", force: :cascade do |t|
+    t.string "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "images_file_name"
+    t.string "images_content_type"
+    t.integer "images_file_size"
+    t.datetime "images_updated_at"
+    t.string "images"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
+  create_table "productimgs", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "images_file_name"
+    t.string "images_content_type"
+    t.integer "images_file_size"
+    t.datetime "images_updated_at"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_productimgs_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|

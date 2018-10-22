@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
              session[:category_id] = @category.id
              redirect_to  new_category_path
           else
-   	         redirect_to new_category_path
+   	         redirect_to new_category_path, :notice => "Something went wrong!"
 	        end
   end        
 
@@ -39,11 +39,9 @@ class CategoriesController < ApplicationController
     end
 
 	def destroy
-		    
-		   @category = Category.find(params[:id])
-           @category.destroy
-           redirect_to categories_path
-       
+		  @category = Category.find(params[:id])
+      @category.destroy
+      redirect_to categories_path  
 	end
 
 	 private

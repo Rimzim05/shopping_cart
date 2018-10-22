@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if current_user.is_admin?
+       @products = Product.all
+    else
+        @products = @current_user.products
+     # @product = Product.find(params[:id])
+    end
   end
 
   # GET /products/1
