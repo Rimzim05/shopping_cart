@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
+       
         <% if user_signed_in? %>
             <a class="navbar-brand" href="#">StuffCity</a>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -67,15 +67,17 @@
       <div class="row">
         <div class="col-lg-3">
           <% if user_signed_in? %>
+          <% if current_user.is_admin? || current_user.is_saler?%>
           <div class="well sidebar-nav">
             <h3>Dashboard</h3>
             <ul class="nav nav-list">
               <li class="nav-header" href="#"></li>
-               <li><%= link_to "", "/path1"  %></li>
-               <li><%= link_to "", "/path2"  %></li>
-               <li><%= link_to "", "/path3"  %></li> 
+               <li> <%= button_to "category",categories_path, method: :get %></li>
+               <li> <%= button_to "Add Products", products_path, :method => :get %></li>
+               <li><%= button_to 'logout', destroy_user_session_path, method: :delete %></li>
             </ul>
           </div><!--/.well -->
+          <% end %>
           <% end %>
         </div><!--/span-->
         <div class="col-lg-6">

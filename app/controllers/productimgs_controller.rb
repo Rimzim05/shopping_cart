@@ -1,27 +1,34 @@
 class ProductimgsController < ApplicationController
-
-	 def index
-    @images = Productimgs.order('created_at')
+ # before_action :set_productiming, only: [:show, :edit, :update, :destroy]
+  def add
   end
 
-	def new
-		@images = Productimgs.new
-	end
+  def index
+      @image = Productimg.all
+   end
+
+  def new
+	  @image = Productimg.new
+  end
 	 
-	def create
-		@images = Productimgs.new(images_params)
-    if @images.save
-      flash[:success] = "The photo was added!"
-      redirect_to root_path
-    else
+  def create
+    
+     product = Product.find(params[:product_id])
+     #@image = Productimg.new(productimg_params)
+     @image = product.productimgs.build(productimg_params)
+     #@image = product.productimgs.build(params[:image])
+    
+  	if @image.save
+  		redirect_to  new_product_productimg_path(product.id), notice: 'image successfully added.'
+  	else
       render 'new'
-    end
-	end
-
-  def images_params
-  params.require(:images).permit(:images, :product_id)
+  		# redirect_to new_product_productimg_path(product.id), notice: 'image not added .'
+  	end
+    # @image = Productimg.create(productimg_params)
   end
 
-
-end
+  private
+  def productimg_params
+    params.require(:productimg).permit(:image)
+  end
 end

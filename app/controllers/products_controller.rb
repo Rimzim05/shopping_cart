@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     if current_user.is_admin?
        @products = Product.all
     else
-        @products = @current_user.products
+       @products = @current_user.products
      # @product = Product.find(params[:id])
     end
   end
@@ -17,39 +17,40 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-     @product = Product.find(params[:id])
+    
+       @product = Product.find(params[:id])
   end
 
   # GET /products/new
   def new
-    @product = Product.new
+       @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
-        @product = current_user.products.find(params[:id])
+       @product = current_user.products.find(params[:id])
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = current_user.products.new(product_params)
-      if @product.save
-         session[:product_id] = @product.id
-         redirect_to  new_product_path, notice: 'Product successfully added.'
-      else
-        redirect_to new_product_path, notice: "data not inserted"
-      end
+    if @product.save
+       session[:product_id] = @product.id
+       redirect_to  new_product_path, notice: 'Product successfully added.'
+    else
+       redirect_to new_product_path, notice: "data not inserted"
     end
+  end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-   @product = Product.find(params[:id])
-          if @product.update(product_params)
-          redirect_to edit_product_path(@product), notice: "Category updated"
-        else
-           render 'edit'
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+       redirect_to edit_product_path(@product), notice: "Category updated"
+    else
+       render 'edit'
     end
   end
 

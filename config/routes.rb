@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :products
-  resources :posts
-  resources :productimgs, only: [:new, :create, :index, :show]
+  resources :products do 
+    resources :productimgs, only: [:new, :create, :index, :show]
+  end
   # get 'welcome/index'
    devise_for :users, controllers: {
         sessions: 'users/sessions'

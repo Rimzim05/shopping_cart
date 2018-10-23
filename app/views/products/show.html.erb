@@ -16,9 +16,22 @@
 <p>
   <strong>Quantity:</strong>
   <%= @product.quantity %>
-  <p>
-  <strong></strong>
-  <!-- < %=@images.images %> -->
 </p>
+
+
+
+<!-- < %byebug%> -->
+<%= image_tag @product.productimgs.last.image.url %> 
+  
+  <% if @product.productimgs.last.image %>
+    <%= image_tag @product.productimgs.last.image.url(:thumb)  %>    
+<% else %>
+    <%= image_tag "/assets/icon/missing.jpg" %>
+<% end %>
+  
+
+
+
+
 <p></p>
 <%= button_to 'Back', products_path, method: :get %>

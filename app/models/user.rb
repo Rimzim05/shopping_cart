@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
          validates :first_name, :last_name, :email, :phonenum, :houseno, :shippingaddress,
                    :houseno, :city, :state, :pincode, presence: true
-          validates :email, uniqueness: true          
+         validates :email, uniqueness: true          
          validates :first_name, :last_name, length: { minimum: 2 }
          validates :phonenum, length: { is: 10 }
          validates :phonenum, :pincode, numericality: true
