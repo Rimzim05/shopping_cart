@@ -7,7 +7,7 @@ ruby '2.4.4'
 # gem for admin
 gem "rails_admin"
  # gem for multiple image
-gem "paperclip", "~> 6.0.0" 
+#gem "paperclip", "~> 6.0.0" 
 # gem 'mini_racer', platforms: :ruby
 gem "twitter-bootstrap-rails"
 gem "therubyracer"

@@ -2,8 +2,11 @@
   <strong>category name:</strong>
   <%= @category.category_name %>
 </p>
+ <% @category.image.each do |image| %> 
 
-<p></p>
+<%= image_tag image %> <br /> 
+
+<% end %>
 
 <%= button_to 'Back', categories_path, method: :get %>
 

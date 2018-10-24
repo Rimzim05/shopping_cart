@@ -2,10 +2,11 @@
 <h3> welcome,</h3>
  <h3><%= current_user.first_name %></h3>
 </div>
+ <% if current_user.is_saler? %>
+      <%= button_to "Add Products", products_path, :method => :get %>
+ <% end %>
  <!-- < % if current_user.is_admin? %> -->
  <!-- < %= button_to "category",categories_path, method: :get %> -->
- <p></p>
  <!-- < %end%> -->
  <!-- < %= button_to "Add Products", products_path, :method => :get %> -->
-<p></p>
  <!-- < %= button_to 'logout', destroy_user_session_path, method: :delete %> -->
