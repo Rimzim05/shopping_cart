@@ -1,6 +1,5 @@
 <%= form_with model: @category, local: true  do |f| %>
-
- <% if @category.errors.any? %>
+<% if @category.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@user.errors.count, "error") %> prohibited
@@ -12,7 +11,7 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 <br>
 <%= f.label :Category_Name %><br />
 <%= f.text_field(:category_name) %>
@@ -20,8 +19,7 @@
 <%= f.file_field :images, multiple: true %>
 
 <div class="actions">
-<%= f.submit "Add" %>
+	<%= f.submit "Add" %>
 </div>
 <% end %>
-
 <%= button_to 'Back', categories_path, :method => :get %>

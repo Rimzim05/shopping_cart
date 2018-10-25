@@ -8,7 +8,7 @@
       <th scope="col">Show</th>
       <th scope="col">Delete</th>
     </tr>
-  </thead>
+    </thead>
   <tbody>
    <% @category.each do |category| %>
       <tr>
@@ -20,13 +20,13 @@
          <% if category.products.present? %>
          <%else%>
         <td><%= button_to "Delete", category_path(category.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>  
-        <%  end %>
-        <% end %>   
+         <%  end %>
+         <% end %>   
       </tr>
-    <% end %>
+   <% end %>
   </tbody>
- </table>
- <td><%= button_to "Add Category", new_category_path, :method => :get %></td>
- <p></p>
-  <td><%= button_to "Add product", new_product_path, :method => :get %></td>
- <p></p>
+</table>
+<%= button_to "Add Category", new_category_path, :method => :get %>
+<p></p>
+<%= button_to "Add product", new_product_path, :method => :get %>
+<p></p>

@@ -2,36 +2,23 @@
   <strong>Product name:</strong>
   <%= @product.product_name %>
 </p>
-
 <p>
   <strong>Product price:</strong>
   <%= @product.product_price %>
 </p>
-
 <p>
   <strong>Product description:</strong>
   <%= @product.product_description %>
 </p>
-
 <p>
  <strong>category_name:</strong>
  <%= @product.category.category_name %>
- </p>
-
+</p>
 <p>
   <strong>Quantity:</strong>
   <%= @product.quantity %>
 </p>
-
 <% @product.image.each do |image| %> 
-<%= image_tag image %> <br /> 
+  <%= image_tag image %> <br /> 
 <% end %>
-
-<!-- < %= image_tag @product.productimgs.last.image.url %>  -->
-<!-- < % if @product.productimgs.last.image %> -->
-<!-- < %= image_tag @product.productimgs.last.image.url, :size => "260x180", :crop => :fill  %>     -->
-<!-- < % else %> -->
-<!-- < %= image_tag "/assets/icon/missing.jpg" %> -->
-<!-- < % end %> -->
-
 <%= button_to 'Back', products_path, method: :get %>

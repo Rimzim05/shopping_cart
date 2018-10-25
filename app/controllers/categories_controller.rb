@@ -15,17 +15,16 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.image.attach(params[:category][:images])
       if @category.save
-         session[:category_id] = @category.id
-         redirect_to  new_category_path
+        redirect_to  new_category_path
       else
-          redirect_to new_category_path, :notice => "Something went wrong!"
+        redirect_to new_category_path, :notice => "Something went wrong!"
       end
   end        
 
   def update
     @category = Category.find(params[:id])
       if @category.update(category_params)
-         redirect_to edit_category_path(@category), notice: "Category updated"
+        redirect_to edit_category_path(@category), notice: "Category updated"
       else
          render 'edit'
       end

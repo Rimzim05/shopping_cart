@@ -30,18 +30,16 @@ class ProductsController < ApplicationController
     @product = current_user.products.new(product_params)
     @product.image.attach(params[:product][:images])
     if @product.save
-       session[:product_id] = @product.id
-       redirect_to  new_product_path, notice: 'Product successfully added.'
+      redirect_to  new_product_path, notice: 'Product successfully added.'
     else
-       redirect_to new_product_path, notice: "data not inserted"
+      redirect_to new_product_path, notice: "data not inserted"
     end
   end
-
 
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-       redirect_to edit_product_path(@product), notice: "Product updated"
+      redirect_to edit_product_path(@product), notice: "Product updated"
     else
        render 'edit'
     end
