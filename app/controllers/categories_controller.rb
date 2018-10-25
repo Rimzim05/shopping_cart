@@ -8,26 +8,22 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  def add
-  end
-      
   def create
     @category = Category.new(category_params)
-    @category.image.attach(params[:category][:images])
-      if @category.save
-        redirect_to  new_category_path
-      else
-        redirect_to new_category_path, :notice => "Something went wrong!"
-      end
+    if @category.save
+      redirect_to  new_category_path
+    else
+      render 'new'
+    end
   end        
 
   def update
     @category = Category.find(params[:id])
-      if @category.update(category_params)
-        redirect_to edit_category_path(@category), notice: "Category updated"
-      else
-         render 'edit'
-      end
+    if @category.update(category_params)
+      redirect_to edit_category_path(@category), notice: "Category updated"
+    else
+      render 'edit'
+    end
   end
 
   def edit

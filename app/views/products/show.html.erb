@@ -21,4 +21,6 @@
 <% @product.image.each do |image| %> 
   <%= image_tag image %> <br /> 
 <% end %>
+
+<!-- < %= link_to 'Remove', delete_image_attachment_product_path(@product.image), method: :delete, data: { confirm: 'Are you sure?' } %> -->
 <%= button_to 'Back', products_path, method: :get %>

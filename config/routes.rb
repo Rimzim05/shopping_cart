@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :products do 
-    resources :productimgs, only: [:new, :create, :index, :show]
-  end
-   devise_for :users, controllers: {
-        sessions: 'users/sessions'
+  resources :products do
+  	member do
+  		delete :delete_image_attachment
+    end
+  end	
+	devise_for :users, controllers: {
+  	sessions: 'users/sessions'
       }
-      resources :categories
-   root "welcome#index"
+	resources :categories
+  	root "welcome#index"
 end
  

@@ -2,11 +2,11 @@
 <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
+        <%= pluralize(@category.errors.count, "error") %> prohibited
         this user from being saved:
       </h2>
       <ul>
-        <% @user.errors.full_messages.each do |msg| %>
+        <% @category.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -16,8 +16,6 @@
 <%= f.label :Category_Name %><br />
 <%= f.text_field(:category_name) %>
 <br>
-<%= f.file_field :images, multiple: true %>
-
 <div class="actions">
 	<%= f.submit "Add" %>
 </div>

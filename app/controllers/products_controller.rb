@@ -1,15 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy,:delete_image_attachment]
 
   def add
   end
   
-  def index
-    if current_user.is_admin?
-       @products = Product.all
-    else
-       @products = @current_user.products
-    end
+  def index  
+     @products = current_user.products    
   end
 
   def show
@@ -18,12 +14,10 @@ class ProductsController < ApplicationController
 
   def new
      @product = Product.new
-     product = Product.new
   end
 
   def edit
-    @product.user = current_user
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id])    
   end
 
   def create
@@ -32,7 +26,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to  new_product_path, notice: 'Product successfully added.'
     else
-      redirect_to new_product_path, notice: "data not inserted"
+      render 'new'
     end
   end
 
@@ -41,22 +35,30 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to edit_product_path(@product), notice: "Product updated"
     else
-       render 'edit'
+      render 'edit'
     end
-  end
+  end 
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     respond_to do |format|
     format.html { redirect_to products_url }
     format.json { head :no_content }
     end
-
   end
+
+  def delete_image_attachment
+     # @image = ActiveStorage::Blob.find_signed(params[:id])
+     # @image.purge
+  #   @product_image = ActiveStorage::Blob.find_signed(params[:id])
+  #   @product_image.purge_later
+  #   redirect_to new_product_path(@product_image.space)
+   end
 
   private
   def set_product
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   def product_params
